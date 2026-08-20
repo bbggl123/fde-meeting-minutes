@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="creative-medium" content="data-viz">
+  <title>鼎霆销售数据驾驶舱</title>
+  <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap">
+  <script src="https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/miaoda/coding-unpkg-sdk/echarts@5.6.0/dist/echarts.min.js" crossorigin="anonymous"></script>
+  <script>const SALES_DATA = {"updateTime":"2026-08-20 16:30:00","kpi":{"totalContracts":186,"totalAmount":128653400,"customerCount":47,"avgAmount":691685},"customerDistribution":[{"name":"上海汽车集团股份有限公司","amount":28560000,"contracts":32},{"name":"比亚迪股份有限公司","amount":21340000,"contracts":24},{"name":"宁德时代新能源科技股份有限公司","amount":15870000,"contracts":18},{"name":"特斯拉（上海）有限公司","amount":12450000,"contracts":14},{"name":"浙江吉利控股集团有限公司","amount":9860000,"contracts":12},{"name":"长城汽车股份有限公司","amount":7520000,"contracts":10},{"name":"蔚来汽车科技（安徽）有限公司","amount":6340000,"contracts":8},{"name":"小鹏汽车科技有限公司","amount":5180000,"contracts":7},{"name":"理想汽车科技有限公司","amount":4620000,"contracts":6},{"name":"其他客户","amount":16913400,"contracts":55}],"monthlyTrend":[{"month":"2025-09","amount":6820000,"contracts":9},{"month":"2025-10","amount":7540000,"contracts":11},{"month":"2025-11","amount":8960000,"contracts":13},{"month":"2025-12","amount":10230000,"contracts":15},{"month":"2026-01","amount":7680000,"contracts":10},{"month":"2026-02","amount":5940000,"contracts":8},{"month":"2026-03","amount":11250000,"contracts":17},{"month":"2026-04","amount":10870000,"contracts":16},{"month":"2026-05","amount":12340000,"contracts":18},{"month":"2026-06","amount":13560000,"contracts":20},{"month":"2026-07","amount":14820000,"contracts":22},{"month":"2026-08","amount":18643400,"contracts":27}],"contracts":[{"id":"DT20260819001","customer":"上海汽车集团股份有限公司","date":"2026-08-19","amount":1280000,"type":"自动化装配线","status":"已签约"},{"id":"DT20260818002","customer":"比亚迪股份有限公司","date":"2026-08-18","amount":2150000,"type":"焊接机器人系统","status":"已签约"},{"id":"DT20260817003","customer":"宁德时代新能源科技股份有限公司","date":"2026-08-17","amount":3200000,"type":"电池PACK生产线","status":"已签约"},{"id":"DT20260815004","customer":"特斯拉（上海）有限公司","date":"2026-08-15","amount":1850000,"type":"总装输送系统","status":"已签约"},{"id":"DT20260814005","customer":"浙江吉利控股集团有限公司","date":"2026-08-14","amount":960000,"type":"涂装自动化设备","status":"已签约"},{"id":"DT20260813006","customer":"长城汽车股份有限公司","date":"2026-08-13","amount":780000,"type":"冲压自动化线","status":"已签约"},{"id":"DT20260812007","customer":"蔚来汽车科技（安徽）有限公司","date":"2026-08-12","amount":1420000,"type":"智能仓储系统","status":"已签约"},{"id":"DT20260811008","customer":"小鹏汽车科技有限公司","date":"2026-08-11","amount":890000,"type":"质检自动化设备","status":"已签约"},{"id":"DT20260810009","customer":"理想汽车科技有限公司","date":"2026-08-10","amount":1150000,"type":"自动化装配线","status":"已签约"},{"id":"DT20260808010","customer":"上海汽车集团股份有限公司","date":"2026-08-08","amount":2340000,"type":"焊接机器人系统","status":"已签约"},{"id":"DT20260807011","customer":"比亚迪股份有限公司","date":"2026-08-07","amount":1670000,"type":"电池PACK生产线","status":"已签约"},{"id":"DT20260806012","customer":"宁德时代新能源科技股份有限公司","date":"2026-08-06","amount":2890000,"type":"模组装配线","status":"已签约"},{"id":"DT20260805013","customer":"特斯拉（上海）有限公司","date":"2026-08-05","amount":980000,"type":"总装输送系统","status":"已签约"},{"id":"DT20260804014","customer":"浙江吉利控股集团有限公司","date":"2026-08-04","amount":1560000,"type":"涂装自动化设备","status":"已签约"},{"id":"DT20260803015","customer":"上海敏孚汽车部件有限公司","date":"2026-08-03","amount":420000,"type":"注塑自动化系统","status":"已签约"},{"id":"DT20260802016","customer":"宁波均胜电子股份有限公司","date":"2026-08-02","amount":680000,"type":"SMT自动化线","status":"已签约"},{"id":"DT20260801017","customer":"华域汽车系统股份有限公司","date":"2026-08-01","amount":1340000,"type":"座椅装配线","status":"已签约"},{"id":"DT20260731018","customer":"上海汽车集团股份有限公司","date":"2026-07-31","amount":1920000,"type":"自动化装配线","status":"已签约"},{"id":"DT20260729019","customer":"比亚迪股份有限公司","date":"2026-07-29","amount":2560000,"type":"焊接机器人系统","status":"已签约"},{"id":"DT20260728020","customer":"宁德时代新能源科技股份有限公司","date":"2026-07-28","amount":3100000,"type":"电池PACK生产线","status":"已签约"},{"id":"DT20260726021","customer":"延锋汽车内饰系统有限公司","date":"2026-07-26","amount":870000,"type":"内饰装配线","status":"已签约"},{"id":"DT20260725022","customer":"长城汽车股份有限公司","date":"2026-07-25","amount":1240000,"type":"冲压自动化线","status":"已签约"},{"id":"DT20260723023","customer":"蔚来汽车科技（安徽）有限公司","date":"2026-07-23","amount":980000,"type":"智能仓储系统","status":"已签约"},{"id":"DT20260721024","customer":"特斯拉（上海）有限公司","date":"2026-07-21","amount":2150000,"type":"总装输送系统","status":"已签约"},{"id":"DT20260719025","customer":"浙江银轮机械股份有限公司","date":"2026-07-19","amount":560000,"type":"热交换器装配线","status":"已签约"},{"id":"DT20260717026","customer":"浙江吉利控股集团有限公司","date":"2026-07-17","amount":1780000,"type":"涂装自动化设备","status":"已签约"},{"id":"DT20260715027","customer":"苏州汇川技术有限公司","date":"2026-07-15","amount":720000,"type":"伺服系统测试线","status":"已签约"},{"id":"DT20260712028","customer":"小鹏汽车科技有限公司","date":"2026-07-12","amount":920000,"type":"质检自动化设备","status":"已签约"},{"id":"DT20260710029","customer":"理想汽车科技有限公司","date":"2026-07-10","amount":1450000,"type":"自动化装配线","status":"已签约"},{"id":"DT20260708030","customer":"上海汽车集团股份有限公司","date":"2026-07-08","amount":2680000,"type":"焊接机器人系统","status":"已签约"},{"id":"DT20260705031","customer":"上海弗列加滤清器有限公司","date":"2026-07-05","amount":380000,"type":"滤芯装配线","status":"已签约"},{"id":"DT20260703032","customer":"比亚迪股份有限公司","date":"2026-07-03","amount":1890000,"type":"电池PACK生产线","status":"已签约"},{"id":"DT20260701033","customer":"福耀玻璃工业集团股份有限公司","date":"2026-07-01","amount":1560000,"type":"玻璃磨边自动化","status":"已签约"},{"id":"DT20260628034","customer":"宁德时代新能源科技股份有限公司","date":"2026-06-28","amount":2750000,"type":"模组装配线","status":"已签约"},{"id":"DT20260625035","customer":"特斯拉（上海）有限公司","date":"2026-06-25","amount":1980000,"type":"总装输送系统","status":"已签约"},{"id":"DT20260622036","customer":"浙江吉利控股集团有限公司","date":"2026-06-22","amount":1320000,"type":"涂装自动化设备","status":"已签约"},{"id":"DT20260620037","customer":"长城汽车股份有限公司","date":"2026-06-20","amount":1150000,"type":"冲压自动化线","status":"已签约"},{"id":"DT20260618038","customer":"上海电气集团股份有限公司","date":"2026-06-18","amount":2100000,"type":"发电机装配线","status":"已签约"},{"id":"DT20260615039","customer":"蔚来汽车科技（安徽）有限公司","date":"2026-06-15","amount":1680000,"type":"智能仓储系统","status":"已签约"},{"id":"DT20260612040","customer":"万向钱潮股份有限公司","date":"2026-06-12","amount":640000,"type":"轴承装配线","status":"已签约"}]};</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --primary-dark: #172554;
+      --accent: #0ea5e9;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --bg: #f1f5f9;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --text-on-dark: #f8fafc;
+    }
+    body {
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.5;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .dashboard { min-height: 100vh; display: flex; flex-direction: column; }
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #2563eb 100%);
+      color: var(--text-on-dark);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .header-left { display: flex; align-items: center; gap: 16px; }
+    .logo-mark {
+      width: 42px; height: 42px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 18px; letter-spacing: -0.5px;
+    }
+    .header-title h1 { font-size: 20px; font-weight: 600; letter-spacing: 0.5px; }
+    .header-title p { font-size: 12px; opacity: 0.7; margin-top: 2px; }
+    .header-right { display: flex; align-items: center; gap: 20px; font-size: 12px; flex-wrap: wrap; }
+    .update-time { display: flex; align-items: center; gap: 6px; opacity: 0.85; }
+    .update-time .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--success);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .company-name { font-weight: 500; letter-spacing: 0.3px; }
+    /* Loading */
+    .loading-overlay {
+      position: fixed; inset: 0; background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999; flex-direction: column; gap: 16px;
+    }
+    .loading-overlay.hidden { display: none; }
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { color: var(--text-secondary); font-size: 13px; }
+    /* Main */
+    .main { flex: 1; padding: 24px 32px; display: flex; flex-direction: column; gap: 20px; }
+    /* KPI */
+    .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      position: relative; overflow: hidden;
+      transition: box-shadow 0.2s ease;
+    }
+    .kpi-card:hover { box-shadow: 0 4px 14px rgba(30, 58, 138, 0.1); }
+    .kpi-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
+    .kpi-card.primary::before { background: #1e3a8a; }
+    .kpi-card.cyan::before { background: #0ea5e9; }
+    .kpi-card.green::before { background: #10b981; }
+    .kpi-card.orange::before { background: #f59e0b; }
+    .kpi-label {
+      font-size: 13px; color: var(--text-secondary); font-weight: 400;
+      margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+    }
+    .kpi-icon {
+      width: 28px; height: 28px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .kpi-card.primary .kpi-icon { background: rgba(30, 58, 138, 0.1); color: #1e3a8a; }
+    .kpi-card.cyan .kpi-icon { background: rgba(14, 165, 233, 0.1); color: #0284c7; }
+    .kpi-card.green .kpi-icon { background: rgba(16, 185, 129, 0.1); color: #059669; }
+    .kpi-card.orange .kpi-icon { background: rgba(245, 158, 11, 0.12); color: #d97706; }
+    .kpi-value {
+      font-size: 26px; font-weight: 700;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.5px; line-height: 1.2;
+    }
+    .kpi-currency { font-size: 16px; font-weight: 500; color: var(--text-secondary); margin-right: 2px; }
+    .kpi-unit { font-size: 13px; font-weight: 400; color: var(--text-muted); margin-left: 4px; }
+    .kpi-sub { margin-top: 12px; font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+    .kpi-sub strong { color: var(--text-secondary); font-weight: 600; }
+    /* Section */
+    .section-row { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex; flex-direction: column;
+    }
+    .panel-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px;
+    }
+    .panel-title {
+      font-size: 15px; font-weight: 600; color: var(--text-primary);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .panel-title-bar { width: 3px; height: 14px; background: var(--primary); border-radius: 2px; }
+    .panel-subtitle { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+    .panel-body { padding: 16px 20px; flex: 1; }
+    .chart-container { width: 100%; min-height: 320px; }
+    /* Distribution */
+    .dist-panel .panel-body {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 12px 16px;
+    }
+    .chart-box { display: flex; flex-direction: column; }
+    .chart-box-title { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; font-weight: 500; }
+    .chart-container-sm { width: 100%; min-height: 270px; }
+    /* Table */
+    .table-panel .panel-body { padding: 0; }
+    .table-toolbar {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    }
+    .search-box { position: relative; flex: 1; max-width: 320px; }
+    .search-box input {
+      width: 100%; padding: 7px 12px 7px 32px;
+      border: 1px solid var(--border); border-radius: 6px;
+      font-size: 13px; font-family: inherit; outline: none;
+      transition: border-color 0.15s ease; background: #f8fafc;
+    }
+    .search-box input:focus { border-color: var(--primary-light); background: #fff; }
+    .search-icon {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted); pointer-events: none;
+    }
+    .filter-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .filter-select {
+      padding: 6px 10px;
+      border: 1px solid var(--border); border-radius: 6px;
+      font-size: 12px; font-family: inherit;
+      background: #f8fafc; color: var(--text-secondary);
+      cursor: pointer; outline: none;
+    }
+    .filter-select:focus { border-color: var(--primary-light); }
+    .table-wrap { overflow-x: auto; max-height: 560px; }
+    table {
+      width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px;
+    }
+    thead th {
+      background: #f8fafc;
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: 600; font-size: 12px; color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap; cursor: pointer; user-select: none;
+      position: sticky; top: 0; z-index: 1;
+    }
+    thead th:hover { background: #f1f5f9; }
+    th .sort-indicator {
+      display: inline-block; margin-left: 4px;
+      font-size: 10px; color: var(--text-muted); opacity: 0.5;
+    }
+    th.sorted .sort-indicator { opacity: 1; color: var(--primary); }
+    tbody td {
+      padding: 9px 16px;
+      border-bottom: 1px solid #f1f5f9;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums; vertical-align: middle;
+    }
+    tbody tr:hover { background: #f8fafc; }
+    tbody tr:last-child td { border-bottom: none; }
+    .contract-id {
+      font-family: 'SF Mono', Consolas, Monaco, monospace;
+      font-size: 12px; color: var(--primary-dark);
+      font-weight: 500; letter-spacing: 0.3px;
+    }
+    .client-name { color: var(--text-primary); font-weight: 500; }
+    .amount-cell { font-weight: 600; color: var(--primary-dark); text-align: right; }
+    .amount-cell .currency { font-weight: 400; color: var(--text-muted); font-size: 11px; margin-right: 2px; }
+    .date-cell { color: var(--text-secondary); }
+    .type-tag {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      font-size: 11px; font-weight: 500;
+      background: rgba(14, 165, 233, 0.08); color: #0284c7;
+    }
+    .status-tag {
+      display: inline-block; padding: 2px 10px;
+      border-radius: 20px; font-size: 11px; font-weight: 500; white-space: nowrap;
+    }
+    .status-tag.signed { background: rgba(16, 185, 129, 0.1); color: #059669; }
+    .status-tag.pending { background: rgba(245, 158, 11, 0.12); color: #d97706; }
+    .table-footer {
+      padding: 12px 20px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12px; color: var(--text-secondary);
+      flex-wrap: wrap; gap: 8px;
+    }
+    .pagination { display: flex; align-items: center; gap: 4px; }
+    .page-btn {
+      width: 28px; height: 28px;
+      border: 1px solid var(--border); border-radius: 4px;
+      background: #fff; color: var(--text-secondary);
+      font-size: 12px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-family: inherit;
+    }
+    .page-btn:hover:not(:disabled) { border-color: var(--primary-light); color: var(--primary); }
+    .page-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .footer {
+      text-align: center; padding: 16px 32px;
+      font-size: 12px; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .data-source {
+      font-size: 11px; color: var(--text-muted);
+      padding: 0 20px 12px; text-align: right;
+    }
+    @media (max-width: 1200px) {
+      .section-row { grid-template-columns: 1fr; }
+      .dist-panel .panel-body { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .header { padding: 16px 20px; }
+      .main { padding: 16px 20px; }
+      .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .kpi-card { padding: 16px; }
+      .kpi-value { font-size: 20px; }
+      .dist-panel .panel-body { grid-template-columns: 1fr; }
+      .chart-container { min-height: 260px; }
+      .chart-container-sm { min-height: 240px; }
+      .panel-header { padding: 14px 16px; }
+      .panel-body { padding: 12px 16px; }
+      thead th, tbody td { padding: 8px 12px; }
+      .table-toolbar { padding: 10px 16px; }
+      .search-box { max-width: none; flex-basis: 100%; }
+    }
+    @media (max-width: 480px) {
+      .kpi-row { grid-template-columns: 1fr; }
+      .kpi-value { font-size: 22px; }
+      .header-title h1 { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="spinner"></div>
+      <div class="loading-text">正在加载销售数据...</div>
+    </div>
+
+    <header class="header">
+      <div class="header-left">
+        <div class="logo-mark">鼎</div>
+        <div class="header-title">
+          <h1>销售数据驾驶舱</h1>
+          <p>Sales Performance Dashboard</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <span class="company-name">上海鼎霆自动化科技有限公司</span>
+        <div class="update-time">
+          <span class="dot"></span>
+          <span id="updateTime">数据加载中...</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="kpi-row">
+        <div class="kpi-card primary">
+          <div class="kpi-label">
+            <span class="kpi-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </span>
+            总合同数
+          </div>
+          <div class="kpi-value"><span id="kpiTotal">—</span><span class="kpi-unit">份</span></div>
+          <div class="kpi-sub"><span>累计签约合同总数</span></div>
+        </div>
+        <div class="kpi-card cyan">
+          <div class="kpi-label">
+            <span class="kpi-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </span>
+            合同总金额
+          </div>
+          <div class="kpi-value"><span class="kpi-currency">¥</span><span id="kpiAmount">—</span></div>
+          <div class="kpi-sub"><span id="kpiAmountWan">累计签约总金额</span></div>
+        </div>
+        <div class="kpi-card green">
+          <div class="kpi-label">
+            <span class="kpi-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </span>
+            客户数
+          </div>
+          <div class="kpi-value"><span id="kpiCustomer">—</span><span class="kpi-unit">家</span></div>
+          <div class="kpi-sub"><span>合作客户总数</span></div>
+        </div>
+        <div class="kpi-card orange">
+          <div class="kpi-label">
+            <span class="kpi-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+            </span>
+            平均合同金额
+          </div>
+          <div class="kpi-value"><span class="kpi-currency">¥</span><span id="kpiAvg">—</span></div>
+          <div class="kpi-sub"><span>单合同平均金额</span></div>
+        </div>
+      </section>
+
+      <section class="section-row">
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span class="panel-title-bar"></span>
+              月度签约趋势
+              <span class="panel-subtitle">签约金额 &amp; 合同数</span>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div id="trendChart" class="chart-container"></div>
+          </div>
+        </div>
+
+        <div class="panel dist-panel">
+          <div class="panel-header">
+            <div class="panel-title">
+              <span class="panel-title-bar"></span>
+              客户金额分布
+              <span class="panel-subtitle">按客户统计</span>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="chart-box">
+              <div class="chart-box-title">金额占比</div>
+              <div id="clientPie" class="chart-container-sm"></div>
+            </div>
+            <div class="chart-box">
+              <div class="chart-box-title">客户金额排名</div>
+              <div id="clientBar" class="chart-container-sm"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span class="panel-title-bar"></span>
+            合同明细
+            <span class="panel-subtitle">共 <span id="tableCount">0</span> 条记录</span>
+          </div>
+        </div>
+        <div class="table-toolbar">
+          <div class="search-box">
+            <span class="search-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </span>
+            <input type="text" id="searchInput" placeholder="搜索合同编号 / 客户名称...">
+          </div>
+          <div class="filter-group">
+            <select class="filter-select" id="clientFilter">
+              <option value="">全部客户</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table id="contractTable">
+            <thead>
+              <tr>
+                <th data-key="id">合同编号 <span class="sort-indicator">▲▼</span></th>
+                <th data-key="customer">客户名称 <span class="sort-indicator">▲▼</span></th>
+                <th>项目类型</th>
+                <th data-key="date" class="sorted">签约日期 <span class="sort-indicator">▼</span></th>
+                <th data-key="amount" style="text-align:right;">合同金额 <span class="sort-indicator">▲▼</span></th>
+                <th>状态</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+        <div class="table-footer">
+          <div id="tableInfo">显示 0 - 0 条，共 0 条</div>
+          <div class="pagination" id="pagination"></div>
+        </div>
+        <div class="data-source">数据来源：飞书多维表格 · 销售合同台账</div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      © 2026 上海鼎霆自动化科技有限公司 · 销售数据驾驶舱 · 数据仅供内部参考
+    </footer>
+  </div>
+
+  <script>
+    let salesData = null;
+    let trendChart, clientPie, clientBar;
+
+    const tableState = {
+      page: 1, pageSize: 15,
+      sortKey: 'date', sortOrder: 'desc',
+      search: '', clientFilter: ''
+    };
+
+    const CHART_COLORS = [
+      '#1e3a8a', '#0ea5e9', '#06b6d4', '#10b981', '#8b5cf6',
+      '#f59e0b', '#ef4444', '#ec4899', '#6366f1', '#94a3b8',
+      '#14b8a6', '#f97316'
+    ];
+
+    function formatAmount(val) {
+      return Number(val).toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function formatAmountWan(val) {
+      return (Number(val) / 10000).toFixed(2) + ' 万';
+    }
+
+    function loadData() {
+      salesData = SALES_DATA;
+      document.getElementById('loadingOverlay').classList.add('hidden');
+      renderAll();
+    }
+
+    function renderKPI() {
+      const k = salesData.kpi;
+      document.getElementById('kpiTotal').textContent = k.totalContracts.toLocaleString();
+      document.getElementById('kpiAmount').textContent = formatAmount(k.totalAmount);
+      document.getElementById('kpiAmountWan').textContent = '约 ' + formatAmountWan(k.totalAmount);
+      document.getElementById('kpiCustomer').textContent = k.customerCount.toLocaleString();
+      document.getElementById('kpiAvg').textContent = formatAmount(k.avgAmount);
+      const t = salesData.updateTime || salesData.update_time || '—';
+      document.getElementById('updateTime').textContent = '数据更新于 ' + t;
+    }
+
+    function initTrendChart() {
+      const el = document.getElementById('trendChart');
+      trendChart = echarts.init(el);
+      const data = salesData.monthlyTrend;
+      const months = data.map(d => d.month);
+      const amounts = data.map(d => d.amount / 10000);
+      const contracts = data.map(d => d.contracts);
+      const option = {
+        tooltip: {
+          trigger: 'axis',
+          backgroundColor: 'rgba(15, 23, 42, 0.92)',
+          borderWidth: 0, padding: [10, 14],
+          textStyle: { color: '#f8fafc', fontSize: 12 },
+          axisPointer: { type: 'cross', crossStyle: { color: '#94a3b8' } },
+          formatter: function(params) {
+            let html = '<div style="font-weight:600;margin-bottom:6px;">' + params[0].axisValue + '</div>';
+            params.forEach(p => {
+              const unit = p.seriesName === '签约金额' ? ' 万元' : ' 份';
+              html += '<div style="display:flex;align-items:center;gap:6px;font-size:12px;">'
+                + '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:' + p.color + '"></span>'
+                + '<span>' + p.seriesName + '</span>'
+                + '<span style="margin-left:auto;font-weight:600;">' + Number(p.value).toLocaleString() + unit + '</span>'
+                + '</div>';
+            });
+            return html;
+          }
+        },
+        legend: {
+          data: ['签约金额', '合同数'],
+          right: 0, top: 0,
+          textStyle: { fontSize: 12, color: '#64748b' },
+          itemWidth: 12, itemHeight: 8, icon: 'roundRect'
+        },
+        grid: { left: '3%', right: '4%', bottom: '3%', top: '15%', containLabel: true },
+        xAxis: {
+          type: 'category', data: months, boundaryGap: true,
+          axisLine: { lineStyle: { color: '#e2e8f0' } },
+          axisTick: { show: false },
+          axisLabel: { color: '#64748b', fontSize: 11 }
+        },
+        yAxis: [
+          {
+            type: 'value', name: '金额(万元)',
+            nameTextStyle: { color: '#94a3b8', fontSize: 11, padding: [0, 0, 0, -15] },
+            axisLine: { show: false }, axisTick: { show: false },
+            splitLine: { lineStyle: { color: '#f1f5f9', type: 'dashed' } },
+            axisLabel: { color: '#94a3b8', fontSize: 11, formatter: '{value}' }
+          },
+          {
+            type: 'value', name: '合同数(份)',
+            nameTextStyle: { color: '#94a3b8', fontSize: 11, padding: [0, -15, 0, 0] },
+            axisLine: { show: false }, axisTick: { show: false },
+            splitLine: { show: false },
+            axisLabel: { color: '#94a3b8', fontSize: 11 }
+          }
+        ],
+        series: [
+          {
+            name: '签约金额', type: 'bar', data: amounts,
+            itemStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                { offset: 0, color: '#3b82f6' }, { offset: 1, color: '#1e3a8a' }
+              ]),
+              borderRadius: [3, 3, 0, 0]
+            },
+            barWidth: '45%',
+            emphasis: {
+              itemStyle: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: '#0ea5e9' }, { offset: 1, color: '#1e40af' }
+                ])
+              }
+            }
+          },
+          {
+            name: '合同数', type: 'line', yAxisIndex: 1, data: contracts,
+            smooth: true, symbol: 'circle', symbolSize: 7,
+            lineStyle: { color: '#f59e0b', width: 2.5 },
+            itemStyle: { color: '#f59e0b', borderWidth: 2, borderColor: '#fff' },
+            areaStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                { offset: 0, color: 'rgba(245, 158, 11, 0.18)' },
+                { offset: 1, color: 'rgba(245, 158, 11, 0.01)' }
+              ])
+            }
+          }
+        ]
+      };
+      trendChart.setOption(option);
+      new ResizeObserver(() => trendChart.resize()).observe(el);
+    }
+
+    function initClientPie() {
+      const el = document.getElementById('clientPie');
+      clientPie = echarts.init(el);
+      const data = salesData.customerDistribution.map((d, i) => ({
+        name: d.name, value: d.amount, contracts: d.contracts,
+        itemStyle: { color: CHART_COLORS[i % CHART_COLORS.length] }
+      }));
+      const option = {
+        tooltip: {
+          trigger: 'item',
+          backgroundColor: 'rgba(15, 23, 42, 0.92)',
+          borderWidth: 0, padding: [10, 14],
+          textStyle: { color: '#f8fafc', fontSize: 12 },
+          formatter: function(params) {
+            return '<div style="font-weight:600;margin-bottom:4px;">' + params.name + '</div>'
+              + '<div>合同金额：¥' + Number(params.value).toLocaleString() + '</div>'
+              + '<div>合同数：' + (params.data.contracts || '-') + ' 份</div>'
+              + '<div>占比：' + params.percent + '%</div>';
+          }
+        },
+        legend: {
+          type: 'scroll', orient: 'vertical',
+          right: '2%', top: 'center',
+          textStyle: { fontSize: 10, color: '#475569' },
+          itemWidth: 8, itemHeight: 8, itemGap: 7,
+          formatter: function(name) {
+            return name.length > 6 ? name.slice(0, 6) + '…' : name;
+          }
+        },
+        series: [{
+          name: '客户金额', type: 'pie',
+          radius: ['42%', '68%'], center: ['30%', '50%'],
+          avoidLabelOverlap: true,
+          label: {
+            show: true, position: 'inside',
+            formatter: function(params) {
+              if (params.percent < 5) return '';
+              return params.percent + '%';
+            },
+            color: '#fff', fontSize: 10, fontWeight: 600
+          },
+          labelLine: { show: false },
+          data: data,
+          emphasis: { scale: true, scaleSize: 4 }
+        }]
+      };
+      clientPie.setOption(option);
+      new ResizeObserver(() => clientPie.resize()).observe(el);
+    }
+
+    function initClientBar() {
+      const el = document.getElementById('clientBar');
+      clientBar = echarts.init(el);
+      const data = salesData.customerDistribution.slice().reverse();
+      const names = data.map(d => d.name.length > 7 ? d.name.slice(0, 7) + '…' : d.name);
+      const amounts = data.map(d => d.amount / 10000);
+      const option = {
+        tooltip: {
+          trigger: 'axis',
+          backgroundColor: 'rgba(15, 23, 42, 0.92)',
+          borderWidth: 0, padding: [10, 14],
+          textStyle: { color: '#f8fafc', fontSize: 12 },
+          axisPointer: { type: 'shadow' },
+          formatter: function(params) {
+            const p = params[0];
+            const idx = p.dataIndex;
+            const raw = data[idx];
+            return '<div style="font-weight:600;margin-bottom:4px;">' + raw.name + '</div>'
+              + '<div>合同金额：¥' + raw.amount.toLocaleString() + '</div>'
+              + '<div>合同数：' + raw.contracts + ' 份</div>';
+          }
+        },
+        grid: { left: '3%', right: '10%', bottom: '3%', top: '3%', containLabel: true },
+        xAxis: {
+          type: 'value', name: '万元',
+          nameTextStyle: { color: '#94a3b8', fontSize: 10 },
+          axisLine: { show: false }, axisTick: { show: false },
+          splitLine: { lineStyle: { color: '#f1f5f9', type: 'dashed' } },
+          axisLabel: { color: '#94a3b8', fontSize: 10 }
+        },
+        yAxis: {
+          type: 'category', data: names,
+          axisLine: { show: false }, axisTick: { show: false },
+          axisLabel: { color: '#475569', fontSize: 11 }
+        },
+        series: [{
+          type: 'bar',
+          data: amounts.map((v, i) => ({
+            value: v,
+            itemStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                { offset: 0, color: '#1e3a8a' }, { offset: 1, color: '#0ea5e9' }
+              ]),
+              borderRadius: [0, 3, 3, 0]
+            }
+          })),
+          barWidth: '55%',
+          label: {
+            show: true, position: 'right',
+            color: '#475569', fontSize: 10,
+            formatter: function(params) { return params.value.toFixed(0) + '万'; }
+          }
+        }]
+      };
+      clientBar.setOption(option);
+      new ResizeObserver(() => clientBar.resize()).observe(el);
+    }
+
+    function getFilteredData() {
+      let data = [...salesData.contracts];
+      if (tableState.search) {
+        const q = tableState.search.toLowerCase();
+        data = data.filter(d =>
+          (d.id || '').toLowerCase().includes(q) ||
+          (d.customer || '').toLowerCase().includes(q)
+        );
+      }
+      if (tableState.clientFilter) {
+        data = data.filter(d => d.customer === tableState.clientFilter);
+      }
+      data.sort((a, b) => {
+        let va = a[tableState.sortKey] || '';
+        let vb = b[tableState.sortKey] || '';
+        if (tableState.sortKey === 'amount') { va = Number(va); vb = Number(vb); }
+        if (va < vb) return tableState.sortOrder === 'asc' ? -1 : 1;
+        if (va > vb) return tableState.sortOrder === 'asc' ? 1 : -1;
+        return 0;
+      });
+      return data;
+    }
+
+    function renderTable() {
+      const all = getFilteredData();
+      const total = all.length;
+      const totalPages = Math.max(1, Math.ceil(total / tableState.pageSize));
+      if (tableState.page > totalPages) tableState.page = totalPages;
+      const start = (tableState.page - 1) * tableState.pageSize;
+      const pageData = all.slice(start, start + tableState.pageSize);
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = pageData.map(d => {
+        const statusClass = d.status === '已签约' ? 'signed' : 'pending';
+        return `
+        <tr>
+          <td><span class="contract-id">${d.id || '—'}</span></td>
+          <td><span class="client-name">${d.customer || '—'}</span></td>
+          <td><span class="type-tag">${d.type || '—'}</span></td>
+          <td><span class="date-cell">${d.date || '—'}</span></td>
+          <td class="amount-cell"><span class="currency">¥</span>${formatAmount(d.amount)}</td>
+          <td><span class="status-tag ${statusClass}">${d.status || '—'}</span></td>
+        </tr>`;
+      }).join('');
+      document.getElementById('tableCount').textContent = total.toLocaleString();
+      const startIdx = total === 0 ? 0 : start + 1;
+      const endIdx = Math.min(start + tableState.pageSize, total);
+      document.getElementById('tableInfo').textContent =
+        `显示 ${startIdx.toLocaleString()} - ${endIdx.toLocaleString()} 条，共 ${total.toLocaleString()} 条`;
+      renderPagination(totalPages);
+      updateSortIndicators();
+    }
+
+    function renderPagination(totalPages) {
+      const pag = document.getElementById('pagination');
+      const cur = tableState.page;
+      let html = '';
+      html += `<button class="page-btn" ${cur === 1 ? 'disabled' : ''} data-page="prev">‹</button>`;
+      const pages = [];
+      if (totalPages <= 7) {
+        for (let i = 1; i <= totalPages; i++) pages.push(i);
+      } else {
+        pages.push(1);
+        if (cur > 3) pages.push('...');
+        const start = Math.max(2, cur - 1);
+        const end = Math.min(totalPages - 1, cur + 1);
+        for (let i = start; i <= end; i++) pages.push(i);
+        if (cur < totalPages - 2) pages.push('...');
+        pages.push(totalPages);
+      }
+      pages.forEach(p => {
+        if (p === '...') {
+          html += `<span style="padding:0 4px;color:#94a3b8;">...</span>`;
+        } else {
+          html += `<button class="page-btn ${p === cur ? 'active' : ''}" data-page="${p}">${p}</button>`;
+        }
+      });
+      html += `<button class="page-btn" ${cur === totalPages ? 'disabled' : ''} data-page="next">›</button>`;
+      pag.innerHTML = html;
+      pag.querySelectorAll('.page-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const val = btn.dataset.page;
+          if (val === 'prev') tableState.page = Math.max(1, cur - 1);
+          else if (val === 'next') tableState.page = Math.min(totalPages, cur + 1);
+          else tableState.page = Number(val);
+          renderTable();
+          document.querySelector('.table-wrap').scrollTop = 0;
+        });
+      });
+    }
+
+    function updateSortIndicators() {
+      document.querySelectorAll('thead th[data-key]').forEach(th => {
+        const key = th.dataset.key;
+        const indicator = th.querySelector('.sort-indicator');
+        if (key === tableState.sortKey) {
+          th.classList.add('sorted');
+          indicator.textContent = tableState.sortOrder === 'asc' ? '▲' : '▼';
+        } else {
+          th.classList.remove('sorted');
+          indicator.textContent = '▲▼';
+        }
+      });
+    }
+
+    function populateFilters() {
+      const sel = document.getElementById('clientFilter');
+      const clients = [...new Set(salesData.contracts.map(c => c.customer))].filter(Boolean).sort();
+      clients.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c.length > 14 ? c.slice(0, 14) + '…' : c;
+        sel.appendChild(opt);
+      });
+    }
+
+    function bindTableEvents() {
+      document.querySelectorAll('thead th[data-key]').forEach(th => {
+        th.addEventListener('click', () => {
+          const key = th.dataset.key;
+          if (tableState.sortKey === key) {
+            tableState.sortOrder = tableState.sortOrder === 'asc' ? 'desc' : 'asc';
+          } else {
+            tableState.sortKey = key;
+            tableState.sortOrder = 'asc';
+          }
+          renderTable();
+        });
+      });
+      const searchInput = document.getElementById('searchInput');
+      let searchTimer;
+      searchInput.addEventListener('input', () => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => {
+          tableState.search = searchInput.value.trim();
+          tableState.page = 1;
+          renderTable();
+        }, 250);
+      });
+      document.getElementById('clientFilter').addEventListener('change', (e) => {
+        tableState.clientFilter = e.target.value;
+        tableState.page = 1;
+        renderTable();
+      });
+    }
+
+    function renderAll() {
+      renderKPI();
+      initTrendChart();
+      initClientPie();
+      initClientBar();
+      populateFilters();
+      bindTableEvents();
+      renderTable();
+    }
+
+    document.addEventListener('DOMContentLoaded', loadData);
+  </script>
+</body>
+</html>
